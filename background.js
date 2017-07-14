@@ -18,6 +18,26 @@ $(function(){
                 $(this).css('background-color', 'orange');
             }
         });
+
+        var noticeBar = $('#noticeBar');
+        if (noticeBar.length){
+            revissionElement = '<div class="noticeCat noticeWarn">'
+                + '<div class="ntHeader">En Revisión</div>'
+                + '    <div>'
+                + '        <div class="ntColumns2" title="Tareas en estado de revisión con menos de 24 horas de creación">'
+                + '            <div class="ntNumber ntRevission ntSuccess ntRevissionLess24h" onclick="$(\'.showAllTasks\').click();$(\'.ftStatus.fv-status10 > span.ftNotUnique\').click();$(\'.ftCreation24.fv-creation240 > span.ftNotUnique\').click()"></div>'
+                + '            <div class="ntFooter">&lt;24h</div>'
+                + '        </div>'
+                + '        <div class="ntColumns2" title="Tareas en estado de revisión con más de 24 horas de creación">'
+                + '            <div class="ntNumber ntRevission ntSuccess ntRevissionMore48h" onclick="$(\'.showAllTasks\').click();$(\'.ftStatus.fv-status10 > span.ftNotUnique\').click();$(\'.ftCreation24.fv-creation241 > span.ftNotUnique\').click()"></div>'
+                + '            <div class="ntFooter">&gt;24h</div>'
+                + '        </div>'
+                + '    </div>'
+                + '</div>'
+                + '</div>';
+            $('#noticeBar .noticeCat:nth-child(3)').after(revissionElement);
+        }
+
     })(jQuery);
 
 	(function($) {
@@ -32,6 +52,7 @@ $(function(){
 				return $("<" + newType + "/>", attrs).append($(this).contents());
 			});
 		}
+
 	})(jQuery);
 
     var $header = $('#file-toolbar');
@@ -263,4 +284,14 @@ $(function(){
         };
         xhr.send();
     }
+
+    window.setInterval(function(){
+        var revissionCount = $('#response .status10').length;
+        var revissionCountLess24h = $('#response .status10').parent().siblings('.btHeader').children('span.creation240').length;
+        var revissionCountMore24h = revissionCount - revissionCountLess24h;
+        $('.ntRevission').text("");
+        $('.ntRevissionLess24h').append(revissionCountLess24h);
+        $('.ntRevissionMore48h').append(revissionCountMore24h);
+    }, 1000);
+
 });
