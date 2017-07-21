@@ -1,0 +1,17 @@
+#noticeBar .noticeCat:first-child{
+    width: 10% !important;
+}
+
+#noticeBar .noticeCat:nth-child(2),
+#noticeBar .noticeCat:nth-child(3){
+    width: 12.5% !important;
+}
+
+#noticeBar .noticeWarn{
+    width: 9% !important;
+}
+
+.ntRevission {
+    background-color: #ff9800 !important;
+    cursor: pointer !important;
+}
