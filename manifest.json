@@ -1,10 +1,14 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "manoderecha",
-  "version": "0.3",
+  "version": "0.4",
   
   "description": "Manipulates the DOM to vitaminize manoderecha's sites",
-  "icons": { "16": "icon.png", "128": "icon.png" },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
 
   "offline_enabled": true,
 
@@ -16,15 +20,35 @@
   },
 
   "content_scripts": [ {
-    "js": [ "jquery-1.11.2.min.js", "background.js", "iemagic.js", "shim.js", "jszip.js", "xlsx.js","xls.js", "popup.js"],
-    "css": [ "custom.css" ],
-    "matches": [ "http://*.manoderecha.net/*", "https://*.manoderecha.net/*", "http://www.manoderecha.net/*", "https://www.manoderecha.net/*"]
+    "js": [
+      "jquery-1.11.2.min.js",
+      "background.js",
+      "iemagic.js",
+      "shim.js",
+      "jszip.js",
+      "xlsx.js",
+      "xls.js",
+      "popup.js"],
+    "css": [
+      "custom.css"
+    ],
+    "matches": [
+      "http://*.manoderecha.net/*",
+      "https://*.manoderecha.net/*"
+    ]
   }],
 
   "permissions": [
-    "tabs", "<all_urls>"
+    "http://*.manoderecha.net/*",
+    "https://*.manoderecha.net/*",
+    "tabs"
   ],
 
-  "content_security_policy": "script-src 'self'; object-src 'self'"
+  "content_security_policy": "script-src 'self'; object-src 'self'",
 
+  "applications": {
+    "gecko": {
+      "id": "md-fixes@vincoorbis.com"
+    }
+  }
 }

@@ -7,7 +7,7 @@ $(function() {
 
         //Get title
         $(function() {
-            chrome.extension.onMessage.addListener(function(request, sender) {
+            chrome.runtime.onMessage.addListener(function(request, sender) {
               if (request.action == "getSource") {
                 titleTask = request.source;
               }
