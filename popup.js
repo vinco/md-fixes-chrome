@@ -1,5 +1,4 @@
 $(function() {
-    
     var urlTask;
     var titleTask;
 
@@ -40,13 +39,13 @@ $(function() {
 
         document.getElementById('pullrequest').addEventListener('copy', function (e) {
             e.preventDefault();
-            var pullRequestText = "### Task related \n["+titleTask+"]("+urlTask+")\n\n# Problem \n\n# Solution \n\nBefore:\n\nNow:\n\n# Test\nTests in local environment.";
+            var pullRequestText = "# Related tasks \n+ ["+titleTask+"]("+urlTask+")\n\n# Main description \n\n# Solution description \n\n# Evidence\n\n # Test\n- [ ] Test \n\n # Additional information";
             e.clipboardData.setData('text/plain', pullRequestText);
             window.close();
         });
         document.getElementById('reference-task').addEventListener('copy', function (e) {
             e.preventDefault();
-            var pullRequestText = "+ " + titleTask + "\n" + urlTask;
+            var pullRequestText = "+ ["+titleTask+"]("+urlTask+")";
             e.clipboardData.setData('text/plain', pullRequestText);
             window.close();
         });

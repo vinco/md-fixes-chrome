@@ -1,7 +1,7 @@
 {
-  "manifest_version": 4,
+  "manifest_version": 5,
   "name": "manoderecha",
-  "version": "0.4",
+  "version": "0.5",
   
   "description": "Manipulates the DOM to vitaminize manoderecha's sites",
   "icons": { "16": "icon.png", "128": "icon.png" },
