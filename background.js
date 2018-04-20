@@ -286,8 +286,8 @@ $(function(){
     }
 
     window.setInterval(function(){
-        var revissionCount = $('#response .status10').length;
-        var revissionCountLess24h = $('#response .status10').parent().siblings('.btHeader').children('span.creation240').length;
+        var revissionCount = $('#response #activesHoursWrapper .status10').length;
+        var revissionCountLess24h = $('#response #activesHoursWrapper .status10').parent().siblings('.btHeader').children('span.creation240').length;
         var revissionCountMore24h = revissionCount - revissionCountLess24h;
         $('.ntRevission').text("");
         $('.ntRevissionLess24h').append(revissionCountLess24h);
